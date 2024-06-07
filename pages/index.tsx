@@ -103,7 +103,7 @@ const HeroSection: React.FC = () => {
             title={
               <FallInPlace>
                 <>
-                  I&apos;m Jericho Cosico
+                  I'm Jericho Cosico
                   <Br /> Software Engineer
                 </>
               </FallInPlace>
@@ -112,7 +112,7 @@ const HeroSection: React.FC = () => {
               <FallInPlace delay={0.4} fontWeight="medium">
                 <>
                   <Br />
-                  &quot;Every software engineer has their own unique talents, skills, and logical thinking. If there are beginners, we shouldn't belittle them; we should teach them. After all, when you were starting out, you were once like them.&quot; 
+                  "Every software engineer has their own unique talents, skills, and logical thinking. If there are beginners, we shouldn't belittle them we should teach them. After all, when you were starting out, you were once like them." 
                 </>
               </FallInPlace>
             }
@@ -236,7 +236,7 @@ const HighlightsSection = () => {
       </HighlightsItem>
       <HighlightsItem title="Solid foundations">
         <Text color="muted" fontSize="lg">
-          We don&apos;t like to re-invent the wheel, neither should you. We
+          We don't like to re-invent the wheel, neither should you. We
           selected the most productive and established tools in the scene and
           build Saas UI on top of it.
         </Text>
