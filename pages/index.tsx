@@ -363,11 +363,9 @@ const SkillsSection = () => {
             <SkillItem 
               name="Codeigniter" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" />
-              } />
             <SkillItem 
               name="JavaScript" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-              } />
           </Stack>
         </Flex>
         <Br />
@@ -377,23 +375,18 @@ const SkillsSection = () => {
             <SkillItem 
               name="jQuery" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" />
-              } />
             <SkillItem 
               name="Vue.js" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" />
-              } />
             <SkillItem 
               name="Node.js" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
-              } />
             <SkillItem 
               name="Next.js" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" />
-              } />
             <SkillItem 
               name="CSS" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" />
-              } />
           </Stack>
         </Flex>
         <Br />
@@ -403,19 +396,15 @@ const SkillsSection = () => {
             <SkillItem 
               name="Bootstrap" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
-              } />
             <SkillItem 
               name="SASS" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" />
-              } />
             <SkillItem 
               name="Git" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
-              } />
             <SkillItem 
               name="MySQL" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
-              } />
           </Stack>
         </Flex>
       </Flex>
