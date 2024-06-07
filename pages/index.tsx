@@ -346,72 +346,76 @@ const AboutSection = () => {
 };
 const SkillsSection = () => {
   return (
-    <Container id="skills" maxW="container.xl" pt={{ base: 40, lg: 10 }} pb="40">
-      <Flex direction="column" align="center" justify="center" py={10}>
-        <Heading as="h2" mb={6}>
-          MY SKILLS
-        </Heading>
+    <Box overflow="hidden">
+      <Container id="skills" maxW="container.xl" pt={{ base: 40, lg: 10 }} pb="40">
+        <Stack direction="row" height="full" align="flex-start">
+          <Flex direction="column" align="center" justify="center" py={10}>
+            <Heading as="h2" mb={6}>
+              MY SKILLS
+            </Heading>
 
-        <Flex justify="center">
-          <Stack direction="row" spacing={10}>
-            <SkillItem 
-              name="HTML" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" />
-            <SkillItem 
-              name="PHP" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-plain.svg" />
-            <SkillItem 
-              name="Laravel" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" />
-            <SkillItem 
-              name="Codeigniter" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" />
-            <SkillItem 
-              name="JavaScript" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-          </Stack>
-        </Flex>
-        <Br />
+            <Flex justify="center">
+              <Stack direction="row" spacing={10}>
+                <SkillItem 
+                  name="HTML" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" />
+                <SkillItem 
+                  name="PHP" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-plain.svg" />
+                <SkillItem 
+                  name="Laravel" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" />
+                <SkillItem 
+                  name="Codeigniter" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" />
+                <SkillItem 
+                  name="JavaScript" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+              </Stack>
+            </Flex>
+            <Br />
 
-        <Flex justify="center">
-          <Stack direction="row" spacing={10}>
-            <SkillItem 
-              name="jQuery" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" />
-            <SkillItem 
-              name="Vue.js" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" />
-            <SkillItem 
-              name="Node.js" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
-            <SkillItem 
-              name="Next.js" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" />
-            <SkillItem 
-              name="CSS" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" />
-          </Stack>
-        </Flex>
-        <Br />
+            <Flex justify="center">
+              <Stack direction="row" spacing={10}>
+                <SkillItem 
+                  name="jQuery" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" />
+                <SkillItem 
+                  name="Vue.js" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" />
+                <SkillItem 
+                  name="Node.js" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
+                <SkillItem 
+                  name="Next.js" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" />
+                <SkillItem 
+                  name="CSS" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" />
+              </Stack>
+            </Flex>
+            <Br />
 
-        <Flex justify="center">
-          <Stack direction="row" spacing={10}>
-            <SkillItem 
-              name="Bootstrap" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
-            <SkillItem 
-              name="SASS" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" />
-            <SkillItem 
-              name="Git" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
-            <SkillItem 
-              name="MySQL" 
-              icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
-          </Stack>
-        </Flex>
-      </Flex>
-    </Container>
+            <Flex justify="center">
+              <Stack direction="row" spacing={10}>
+                <SkillItem 
+                  name="Bootstrap" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
+                <SkillItem 
+                  name="SASS" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" />
+                <SkillItem 
+                  name="Git" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+                <SkillItem 
+                  name="MySQL" 
+                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
+              </Stack>
+            </Flex>
+          </Flex>
+        </Stack>
+      </Container>
+    </Box>
   );
 };
 const SkillItem = ({ name, icon }) => {
