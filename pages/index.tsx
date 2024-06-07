@@ -80,7 +80,6 @@ const Home: NextPage = () => {
         {/*
         <HighlightsSection />
 
-
         <TestimonialsSection />
 
         <PricingSection />
