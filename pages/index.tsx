@@ -103,7 +103,7 @@ const HeroSection: React.FC = () => {
             title={
               <FallInPlace>
                 <>
-                  I'm Jericho Cosico
+                  I&apos;m Jericho Cosico
                   <Br /> Software Engineer
                 </>
               </FallInPlace>
@@ -112,7 +112,7 @@ const HeroSection: React.FC = () => {
               <FallInPlace delay={0.4} fontWeight="medium">
                 <>
                   <Br />
-                  "Every software engineer has their own unique talents, skills, and logical thinking. If there are beginners, we shouldn't belittle them; we should teach them. After all, when you were starting out, you were once like them." 
+                  &quot;Every software engineer has their own unique talents, skills, and logical thinking. If there are beginners, we shouldn't belittle them; we should teach them. After all, when you were starting out, you were once like them.&quot; 
                 </>
               </FallInPlace>
             }
