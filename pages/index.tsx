@@ -359,7 +359,6 @@ const SkillsSection = () => {
             <SkillItem 
               name="Laravel" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" />
-              } />
             <SkillItem 
               name="Codeigniter" 
               icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" />
