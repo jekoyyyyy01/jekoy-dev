@@ -19,6 +19,7 @@ import {
   VStack,
   Flex,
   TagLabel,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
 
@@ -285,6 +286,10 @@ const SkillWrapItem = ({ name, icon }) => {
 };
 
 const SkillItem = ({ name, icon }) => {
+  const imgH         = useBreakpointValue({ base: "50px", md: "100px" });
+  const imgW         = useBreakpointValue({ base: "50px", md: "100px" });
+  const textFontSize = useBreakpointValue({ base: "sm", md: "md" });
+
   return (
     <Box
       bg="#27284C"
@@ -301,9 +306,10 @@ const SkillItem = ({ name, icon }) => {
     >
       <Text
         fontWeight="bold"
+        fontSize={textFontSize}
         mb={{ base: 2, md: 4 }}
-        position="absolute"
         top={{ base: 2, md: 4 }}
+        position="absolute"
         left="50%"
         transform="translateX(-50%)"
       >
@@ -313,7 +319,7 @@ const SkillItem = ({ name, icon }) => {
       <Flex justify="center" align="center" h="100%">
         <img
           src={icon}
-          style={{ width: "100px", height: "100px", marginTop: "10px" }}
+          style={{ width: imgW, height: imgH, marginTop: "10px" }}
         />
       </Flex>
     </Box>
