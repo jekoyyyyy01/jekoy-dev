@@ -29,6 +29,7 @@ export const Logo = ({ href = '/', onClick }: LogoProps) => {
         p="1"
         borderRadius="sm"
         onClick={onClick}
+         _hover={{ textDecoration: "none" }}
       >
         {logo}
         <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>
