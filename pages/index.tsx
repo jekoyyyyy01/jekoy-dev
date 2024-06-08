@@ -261,10 +261,11 @@ const SkillsSection = () => {
     <Box overflow="hidden">
       <Container id="skills" maxW="container.xl">
         <Flex direction="column" align="center" justify="center" py={10}>
-          <Heading as="h2" mb={6}>
+          <Heading as="h2" mb={15}>
             MY SKILLS
           </Heading>
-          <Wrap justify="center" spacing={10}>
+
+          <Wrap justify="center" spacing={{ base: 3, md: 10 }}>
             {skills.map((skill, index) => (
               <SkillWrapItem key={index} name={skill.name} icon={skill.icon} />
             ))}
@@ -292,22 +293,23 @@ const SkillItem = ({ name, icon }) => {
       p={4}
       textAlign="center"
       boxShadow="md"
-      w={{ base: "150px", md: "200px" }}
-      h={{ base: "150px", md: "200px" }}
+      w={{ base: "100px", md: "200px" }}
+      h={{ base: "100px", md: "200px" }}
       position="relative"
       style={{ transition: "transform 0.3s ease-in-out" }}
       _hover={{ transform: "scale(1.1)" }}
     >
       <Text
         fontWeight="bold"
-        mb={2}
+        mb={{ base: 2, md: 4 }}
         position="absolute"
-        top="4"
+        top={{ base: 2, md: 4 }}
         left="50%"
         transform="translateX(-50%)"
       >
         {name}
       </Text>
+
       <Flex justify="center" align="center" h="100%">
         <img
           src={icon}
