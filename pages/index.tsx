@@ -12,6 +12,7 @@ import {
   Heading,
   Text,
   Wrap,
+  WrapItem,
   Tag,
   useClipboard,
   IconButton,
@@ -239,79 +240,49 @@ const AboutSection = () => {
   );
 };
 const SkillsSection = () => {
+  const skills = [
+    { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" },
+    { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-plain.svg" },
+    { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" },
+    { name: "Codeigniter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" },
+    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+    { name: "jQuery", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" },
+    { name: "Vue.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" },
+    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" },
+    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" },
+    { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" },
+    { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" },
+    { name: "SASS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" },
+    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+    { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" }
+  ];
+
   return (
     <Box overflow="hidden">
-      <Container id="skills" maxW="container.xl" pt={{ base: 40, lg: 10 }} pb="40">
-        <Stack direction="row" height="full" align="flex-start">
-          <Flex direction="column" align="center" justify="center" py={10}>
-            <Heading as="h2" mb={6}>
-              MY SKILLS
-            </Heading>
-
-            <Flex justify="center">
-              <Stack direction="row" spacing={10}>
-                <SkillItem 
-                  name="HTML" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" />
-                <SkillItem 
-                  name="PHP" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-plain.svg" />
-                <SkillItem 
-                  name="Laravel" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" />
-                <SkillItem 
-                  name="Codeigniter" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg" />
-                <SkillItem 
-                  name="JavaScript" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-              </Stack>
-            </Flex>
-            <Br />
-
-            <Flex justify="center">
-              <Stack direction="row" spacing={10}>
-                <SkillItem 
-                  name="jQuery" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" />
-                <SkillItem 
-                  name="Vue.js" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" />
-                <SkillItem 
-                  name="Node.js" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
-                <SkillItem 
-                  name="Next.js" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg" />
-                <SkillItem 
-                  name="CSS" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-plain.svg" />
-              </Stack>
-            </Flex>
-            <Br />
-
-            <Flex justify="center">
-              <Stack direction="row" spacing={10}>
-                <SkillItem 
-                  name="Bootstrap" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" />
-                <SkillItem 
-                  name="SASS" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" />
-                <SkillItem 
-                  name="Git" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
-                <SkillItem 
-                  name="MySQL" 
-                  icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
-              </Stack>
-            </Flex>
-          </Flex>
-        </Stack>
+      <Container id="skills" maxW="container.xl">
+        <Flex direction="column" align="center" justify="center" py={10}>
+          <Heading as="h2" mb={6}>
+            MY SKILLS
+          </Heading>
+          <Wrap justify="center" spacing={10}>
+            {skills.map((skill, index) => (
+              <SkillWrapItem key={index} name={skill.name} icon={skill.icon} />
+            ))}
+          </Wrap>
+        </Flex>
       </Container>
     </Box>
   );
 };
+
+const SkillWrapItem = ({ name, icon }) => {
+  return (
+    <WrapItem>
+      <SkillItem name={name} icon={icon} />
+    </WrapItem>
+  );
+};
+
 const SkillItem = ({ name, icon }) => {
   return (
     <Box
@@ -321,20 +292,27 @@ const SkillItem = ({ name, icon }) => {
       p={4}
       textAlign="center"
       boxShadow="md"
-      w="200px"
-      h="200px"
+      w={{ base: "150px", md: "200px" }}
+      h={{ base: "150px", md: "200px" }}
       position="relative"
       style={{ transition: "transform 0.3s ease-in-out" }}
       _hover={{ transform: "scale(1.1)" }}
     >
-      <Text fontWeight="bold" mb={2} position="absolute" top="4" left="50%" transform="translateX(-50%)">
+      <Text
+        fontWeight="bold"
+        mb={2}
+        position="absolute"
+        top="4"
+        left="50%"
+        transform="translateX(-50%)"
+      >
         {name}
       </Text>
       <Flex justify="center" align="center" h="100%">
-        <img 
-          src={icon} 
-          style={{ width: "100px", height: "100px", marginTop: "10px" }} 
-          />
+        <img
+          src={icon}
+          style={{ width: "100px", height: "100px", marginTop: "10px" }}
+        />
       </Flex>
     </Box>
   );
