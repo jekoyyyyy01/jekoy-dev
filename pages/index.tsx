@@ -240,6 +240,7 @@ const AboutSection = () => {
     />
   );
 };
+
 const SkillsSection = () => {
   const skills = [
     { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" },
@@ -276,7 +277,6 @@ const SkillsSection = () => {
     </Box>
   );
 };
-
 const SkillWrapItem = ({ name, icon }) => {
   return (
     <WrapItem>
@@ -284,11 +284,10 @@ const SkillWrapItem = ({ name, icon }) => {
     </WrapItem>
   );
 };
-
 const SkillItem = ({ name, icon }) => {
   const imgH         = useBreakpointValue({ base: "50px", md: "100px" });
   const imgW         = useBreakpointValue({ base: "50px", md: "100px" });
-  const textFontSize = useBreakpointValue({ base: "sm", md: "md" });
+  const textFontSize = useBreakpointValue({ base: "sm", md: "xl" });
 
   return (
     <Box

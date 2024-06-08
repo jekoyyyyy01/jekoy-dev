@@ -1,6 +1,5 @@
 import * as React from "react";
 import { HStack } from "@chakra-ui/react";
-import { Link as ScrollLink } from "react-scroll";
 
 import { useRouter } from "next/router";
 
@@ -38,29 +37,34 @@ const Navigation: React.FC = () => {
     <HStack spacing="2" flexShrink={0}>
       {siteConfig.header.links.map(({ id, ...props }, i) => {
         return (
-          <ScrollLink
-            key={i}
-            to={id}
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            activeClass="active"
-          >
-            <NavLink
-              display={["none", null, "block"]}
-              href={`/#${id}`}
-              key={i}
-              isActive={
-                !!(
-                  (id && activeId === id)
-                )
+          <NavLink
+            onClick={(e) => {
+              const targetDiv = document.getElementById(id);
+              
+              if (targetDiv) {
+                const offsetTop = targetDiv.offsetTop;
+
+                e.preventDefault();
+
+                window.scrollTo({
+                  top: offsetTop,
+                  behavior: 'smooth',
+                });
               }
-              {...props}
-            >
-              {props.label}
-            </NavLink>
-          </ScrollLink>
+            }}
+
+            display={["none", null, "block"]}
+            href={`/#${id}`}
+            key={i}
+            isActive={
+              !!(
+                (id && activeId === id)
+              )
+            }
+            {...props}
+          >
+            {props.label}
+          </NavLink>
         );
       })}
 
