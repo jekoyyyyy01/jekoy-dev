@@ -7,6 +7,7 @@ import {
   Stack,
   Flex,
   HStack,
+  useColorMode,
 } from '@chakra-ui/react'
 
 import { Link, LinkProps } from '@saas-ui/react'
@@ -73,14 +74,16 @@ export const Copyright: React.FC<CopyrightProps> = ({
 }
 
 export const FooterLink: React.FC<LinkProps> = (props) => {
-  const { children, ...rest } = props
+  const { children, ...rest } = props;
+  const { colorMode } = useColorMode();
+
   return (
     <Link
       color="muted"
       fontSize="sm"
       textDecoration="none"
       _hover={{
-        color: 'white',
+        color: colorMode === 'light' ? 'black' : 'white',
         transition: 'color .2s ease-in',
       }}
       {...rest}

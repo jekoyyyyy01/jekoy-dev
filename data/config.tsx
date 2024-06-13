@@ -26,10 +26,10 @@ const siteConfig = {
         id: 'skills',
         label: 'Skills',
       },
-      // {
-      //   id: 'resume',
-      //   label: 'Resume',
-      // },
+      {
+        id: 'experience',
+        label: 'Experience',
+      },
     ],
   },
   footer: {

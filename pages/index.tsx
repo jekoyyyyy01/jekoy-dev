@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useMediaQuery } from 'react-responsive';
 import type { NextPage } from "next";
 import Image from "next/image";
 import {
@@ -30,6 +31,8 @@ import { Link, Br } from "@saas-ui/react";
 import { Em } from "components/typography";
 import { NextjsLogo, ChakraLogo } from "components/logos";
 import {
+  FiGitCommit,
+  FiGitMerge,
   FiArrowRight,
   FiBox,
   FiCheck,
@@ -55,6 +58,7 @@ import { Pricing } from "components/pricing/pricing";
 
 import { ButtonLink } from "components/button-link/button-link";
 import { Testimonial, Testimonials } from "components/testimonials";
+import { SectionTitle } from 'components/section'
 
 import faq from "data/faq";
 import testimonials from "data/testimonials";
@@ -79,6 +83,8 @@ const Home: NextPage = () => {
         <AboutSection />
 
         <SkillsSection />
+
+        <Experience />
 
         {/*
         <HighlightsSection />
@@ -191,6 +197,7 @@ const HeroSection: React.FC = () => {
   );
 };
 
+/* About */
 const AboutSection = () => {
   return (
     <Features
@@ -241,6 +248,7 @@ const AboutSection = () => {
   );
 };
 
+/* Skills */
 const SkillsSection = () => {
   const skills = [
     { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" },
@@ -263,7 +271,7 @@ const SkillsSection = () => {
     <Box overflow="hidden">
       <Container id="skills" maxW="container.xl">
         <Flex direction="column" align="center" justify="center" py={10}>
-          <Heading as="h2" mb={15}>
+          <Heading as="h2" mb={25}>
             MY SKILLS
           </Heading>
 
@@ -326,155 +334,106 @@ const SkillItem = ({ name, icon }) => {
   );
 };
 
-// const HighlightsSection = () => {
-//   const { value, onCopy, hasCopied } = useClipboard("yarn add @saas-ui/react");
+/* Experience */
+const Experience = () => {
+  const [isMobileDevice, setIsMobileDevice] = React.useState<boolean>(false);
 
-//   return (
-//     <Highlights>
-//       <HighlightsItem colSpan={[1, null, 2]} title="Core components">
-//         <VStack alignItems="flex-start" spacing="8">
-//           <Text color="muted" fontSize="xl">
-//             Get started for free with <Em>30+ open source components</Em>.
-//             Including authentication screens with Clerk, Supabase and Magic.
-//             Fully functional forms with React Hook Form. Data tables with React
-//             Table.
-//           </Text>
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobileDevice(window.innerWidth < 768); // Adjust threshold as needed
+    };
 
-//           <Flex
-//             rounded="full"
-//             borderWidth="1px"
-//             flexDirection="row"
-//             alignItems="center"
-//             py="1"
-//             ps="8"
-//             pe="2"
-//             bg="primary.900"
-//             _dark={{ bg: "gray.900" }}
-//           >
-//             <Box>
-//               <Text color="yellow.400" display="inline">
-//                 yarn add
-//               </Text>{" "}
-//               <Text color="cyan.300" display="inline">
-//                 @saas-ui/react
-//               </Text>
-//             </Box>
-//             <IconButton
-//               icon={hasCopied ? <FiCheck /> : <FiCopy />}
-//               aria-label="Copy install command"
-//               onClick={onCopy}
-//               variant="ghost"
-//               ms="4"
-//               isRound
-//               color="white"
-//             />
-//           </Flex>
-//         </VStack>
-//       </HighlightsItem>
-//       <HighlightsItem title="Solid foundations">
-//         <Text color="muted" fontSize="lg">
-//           We don't like to re-invent the wheel, neither should you. We
-//           selected the most productive and established tools in the scene and
-//           build Saas UI on top of it.
-//         </Text>
-//       </HighlightsItem>
-//       <HighlightsTestimonialItem
-//         name="Renata Alink"
-//         description="Founder"
-//         avatar="/static/images/avatar.jpg"
-//         gradient={["pink.200", "purple.500"]}
-//       >
-//         “Saas UI helped us set up a beautiful modern UI in no time. It saved us
-//         hundreds of hours in development time and allowed us to focus on
-//         business logic for our specific use-case from the start.”
-//       </HighlightsTestimonialItem>
-//       <HighlightsItem
-//         colSpan={[1, null, 2]}
-//         title="Start your next idea two steps ahead"
-//       >
-//         <Text color="muted" fontSize="lg">
-//           We took care of all your basic frontend needs, so you can start
-//           building functionality that makes your product unique.
-//         </Text>
-//         <Wrap mt="8">
-//           {[
-//             "authentication",
-//             "navigation",
-//             "crud",
-//             "settings",
-//             "multi-tenancy",
-//             "layouts",
-//             "billing",
-//             "a11y testing",
-//             "server-side rendering",
-//             "documentation",
-//             "onboarding",
-//             "storybooks",
-//             "theming",
-//             "upselling",
-//             "unit testing",
-//             "feature flags",
-//             "responsiveness",
-//           ].map((value) => (
-//             <Tag
-//               key={value}
-//               variant="subtle"
-//               colorScheme="purple"
-//               rounded="full"
-//               px="3"
-//             >
-//               {value}
-//             </Tag>
-//           ))}
-//         </Wrap>
-//       </HighlightsItem>
-//     </Highlights>
-//   );
-// };
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
 
-// const TestimonialsSection = () => {
-//   const columns = React.useMemo(() => {
-//     return testimonials.items.reduce<Array<typeof testimonials.items>>(
-//       (columns, t, i) => {
-//         columns[i % 3].push(t);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
-//         return columns;
-//       },
-//       [[], [], []]
-//     );
-//   }, []);
+  return (
+    <Box overflow="hidden">
+      <Container id="experience" maxW="container.xl">
+        <Features
+          id="experience"
+          title='MY EXPERIENCE'
+          columns={[1]}
+          iconSize={8}
+          spacing={20}
+          features={[
+            {
+              title: "Jr. Web Developer",
+              icon: FiGitCommit,
+              description: (
+                <>
+                  <Br />
+                  Avasia Information Systems
+                  <Br />
+                  5th Floor Bloomingdale Plaza, Shaw Blvd, Pasig, Metro Manila
+                  <Br />
+                  Nov 2019 to Nov 2020
 
-//   return (
-//     <Testimonials
-//       title={testimonials.title}
-//       columns={[1, 2, 3]}
-//       innerWidth="container.xl"
-//     >
-//       <>
-//         {columns.map((column, i) => (
-//           <Stack key={i} spacing="8">
-//             {column.map((t, i) => (
-//               <Testimonial key={i} {...t} />
-//             ))}
-//           </Stack>
-//         ))}
-//       </>
-//     </Testimonials>
-//   );
-// };
+                  <Br />
+                  <Br />
+                  &bull; Trained about their systems, technologies and new programming language to be used.
+                  <Br />
+                  &bull; Participated in project meetings with the whole team.
+                  <Br />
+                  &bull; Designed and developed POS & Internal system using Vue js and Node js.
+                  <Br />
+                  &bull; Learned to use Api’s.
+                  <Br />
+                  &bull; Experienced to use the bitbucket and github
+                  <Br />
+                </>
+              ),
+              variant: isMobileDevice ? '' : 'inline',
+              iconPosition: "top",
+              delay: 0.6,
+            },
+            {
+              title: "Software Engineer",
+              icon: FiGitMerge,
+              description: (
+                <>
+                  <Br />
+                  OrangeApps, Inc.
+                  <Br />
+                  39 Sct. Rallos St, Diliman, Quezon City, 1103 Metro Manila
+                  <Br />
+                  Dec 2020 to Present
 
-// const PricingSection = () => {
-//   return (
-//     <Pricing {...pricing}>
-//       <Text p="8" textAlign="center" color="muted">
-//         VAT may be applicable depending on your location.
-//       </Text>
-//     </Pricing>
-//   );
-// };
-
-// const FaqSection = () => {
-//   return <Faq {...faq} />;
-// };
+                  <Br />
+                  <Br />
+                  &bull; Learned about PHP, Javascript, jQuery, Codeigniter and Laravel frameworks.
+                  <Br />
+                  &bull; Designed and developed complex modules in school platforms.
+                  <Br />
+                  &bull; Maintained and enhanced functionality within multiple legacy system.
+                  <Br />
+                  &bull; Learned and recoded outdated backend systems to modernize functionality.
+                  <Br />
+                  &bull; Learned Server Side Like Google Cloud Platform (GCP) and Linux Server.
+                  <Br />
+                  &bull; Learned about cross-platform API backend integration.
+                  <Br />
+                  &bull; Learned importing big data into their Database.
+                  <Br />
+                  &bull; Experienced big meeting to outline objectives and tactics for upcoming major projects.
+                  <Br />
+                  &bull; Experienced in mentoring and guiding junior software engineers through training and onboarding processes.
+                </>
+              ),
+              variant: isMobileDevice ? '' : 'inline',
+              iconPosition: "top",
+              delay: 1,
+            },
+          ]}
+          reveal={FallInPlace}
+        />
+      </Container>
+    </Box>
+  );
+}
 
 export default Home;
