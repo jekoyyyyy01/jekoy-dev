@@ -405,7 +405,7 @@ const Experience = () => {
 
                   <Br />
                   <Br />
-                  &bull; Learned about PHP, Javascript, jQuery, Codeigniter and Laravel frameworks.
+                  &bull; Learned about PHP, Javascript, jQuery, MySQL, Codeigniter and Laravel frameworks.
                   <Br />
                   &bull; Designed and developed complex modules in school platforms.
                   <Br />
@@ -416,6 +416,8 @@ const Experience = () => {
                   &bull; Learned Server Side Like Google Cloud Platform (GCP) and Linux Server.
                   <Br />
                   &bull; Learned about cross-platform API backend integration.
+                  <Br />
+                  &bull; Learned about third party integration like SnappyPDF/Tcpdf, Laravel Excel/PHPExcel and Oauth2.
                   <Br />
                   &bull; Learned importing big data into their Database.
                   <Br />
