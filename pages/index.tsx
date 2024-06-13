@@ -20,6 +20,7 @@ import {
   Flex,
   TagLabel,
   useBreakpointValue,
+  useColorMode,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
 
@@ -285,14 +286,15 @@ const SkillWrapItem = ({ name, icon }) => {
   );
 };
 const SkillItem = ({ name, icon }) => {
+  const { colorMode } = useColorMode();
   const imgH         = useBreakpointValue({ base: "50px", md: "100px" });
   const imgW         = useBreakpointValue({ base: "50px", md: "100px" });
   const textFontSize = useBreakpointValue({ base: "sm", md: "xl" });
 
   return (
     <Box
-      bg="#27284C"
-      color="white"
+      bg={ colorMode === 'light' ? '#E7E4F7' : '#27284C' }
+      color={ colorMode === 'light' ? 'black' : 'white' }
       borderRadius="md"
       p={4}
       textAlign="center"
