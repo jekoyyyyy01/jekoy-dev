@@ -43,24 +43,20 @@ const siteConfig = {
     ),
     links: [
       {
-        href: 'jekcosico@gmail.com',
-        label: 'Contact',
-      },
-      {
         href: 'https://www.linkedin.com/in/jericho-cosico-14595418b/',
-        label: <FaLinkedin size="14" />,
+        label: <FaLinkedin size="27" />,
       },
       {
         href: 'https://github.com/Jekoy261',
-        label: <FaGithub size="14" />,
+        label: <FaGithub size="27" />,
       },
       {
         href: 'https://www.instagram.com/itsmejekoyyyyyyyyyy/',
-        label: <FaInstagram size="14" />,
+        label: <FaInstagram size="27" />,
       },
       {
         href: 'https://www.facebook.com/jekoy262626',
-        label: <FaFacebook size="14" />,
+        label: <FaFacebook size="27" />,
       },
     ],
   },

@@ -25,21 +25,26 @@ export const Footer: React.FC<FooterProps> = (props) => {
         <SimpleGrid columns={columns}>
           <Stack spacing="8">
             <Stack alignItems="flex-start">
-              <Flex>
-                {/*<Box as="img" src={siteConfig.logo} alt="Logo" flex="1" height="32px" />*/}
-              </Flex>
               <Text fontSize="md" color="muted">
                 {siteConfig.seo.description}
               </Text>
             </Stack>
             <Copyright>{siteConfig.footer.copyright}</Copyright>
           </Stack>
+
+
           <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
-            {siteConfig.footer?.links?.map(({ href, label }) => (
-              <FooterLink key={href} href={href}>
-                {label}
-              </FooterLink>
-            ))}
+            <Text fontSize="md" color="muted">
+              Contact: 
+            </Text>
+
+            {siteConfig.footer?.links?.map(({ href, label }) => 
+              (
+                <FooterLink key={href} href={href}>
+                  {label}
+                </FooterLink>
+              ) 
+            )}
           </HStack>
         </SimpleGrid>
       </Container>
