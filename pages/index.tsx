@@ -69,7 +69,7 @@ const Home: NextPage = () => {
   return (
     <Box>
       <SEO
-        title="Cosico"
+        title="Jekoy"
         description=""
       />
       <Box>
