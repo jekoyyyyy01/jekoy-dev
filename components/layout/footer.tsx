@@ -9,8 +9,6 @@ import {
   Flex,
   HStack,
   useColorMode,
-  useState,
-  useEffect,
 } from '@chakra-ui/react'
 
 import { Link, LinkProps } from '@saas-ui/react'
