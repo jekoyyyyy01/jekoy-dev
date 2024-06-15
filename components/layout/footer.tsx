@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   Box,
   BoxProps,
@@ -8,6 +9,8 @@ import {
   Flex,
   HStack,
   useColorMode,
+  useState,
+  useEffect,
 } from '@chakra-ui/react'
 
 import { Link, LinkProps } from '@saas-ui/react'
@@ -20,24 +23,40 @@ export interface FooterProps extends BoxProps {
 
 export const Footer: React.FC<FooterProps> = (props) => {
   const { columns = 2, ...rest } = props
+
+  const [isMobileDevice, setIsMobileDevice] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobileDevice(window.innerWidth < 768); // Adjust threshold as needed
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <Box bg="white" _dark={{ bg: 'gray.900' }} {...rest}>
       <Container maxW="container.2xl" px="8" py="8">
         <SimpleGrid columns={columns}>
           <Stack spacing="8">
-            <Stack alignItems="flex-start">
-              <Text fontSize="md" color="muted">
-                {siteConfig.seo.description}
-              </Text>
-            </Stack>
+            <Text fontSize="md" color="muted">
+              {siteConfig.seo.description}
+            </Text>
             <Copyright>{siteConfig.footer.copyright}</Copyright>
           </Stack>
 
-
           <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
-            <Text fontSize="md" color="muted">
-              Contact: 
-            </Text>
+            { 
+              isMobileDevice ? '' : 
+              <Text fontSize="md" color="muted">
+                Contact: 
+              </Text>
+            }
 
             {siteConfig.footer?.links?.map(({ href, label }) => 
               (
