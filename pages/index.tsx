@@ -215,7 +215,7 @@ const AboutSection = () => {
       }
       description={
         <>
-          Hi Everyone, I am Jericho Cosico from Lian Batangas, Philippines.
+          Hi Everyone, I am Jericho Cosico, also known as <i>Jekoy</i>, from Lian Batangas, Philippines.
           <Br />
         </>
       }
