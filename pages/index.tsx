@@ -424,6 +424,8 @@ const Experience = () => {
                   &bull; Experienced big meeting to outline objectives and tactics for upcoming major projects.
                   <Br />
                   &bull; Experienced in mentoring and guiding junior software engineers through training and onboarding processes.
+                  <Br />
+                  &bull; Attend a seminar in Fundamentals of Leadership & Management.
                 </>
               ),
               variant: isMobileDevice ? '' : 'inline',
