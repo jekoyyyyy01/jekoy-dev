@@ -228,7 +228,7 @@ const AboutSection = () => {
           icon: FiCoffee,
           description: (
             <>
-              with five years of experience, and I love the challenge of turning ideas into reality through code. My passion lies in crafting efficient and elegant solutions.
+              with four years of experience, and I love the challenge of turning ideas into reality through code. My passion lies in crafting efficient and elegant solutions.
               <Br/>
               <Br/>
               Growing up in the province is tough you need to learn how to make a living. When I was a kid, I was always curious about everything. I always wanted to learn new things, like playing basketball, chess, and more.
