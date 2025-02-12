@@ -139,7 +139,7 @@ const HeroSection: React.FC = () => {
             <FallInPlace delay={1}>
               <Box overflow="hidden" height="50%">
                 <Image
-                  src=""
+                  src="/static/images/dev2.png"
                   loading="lazy"
                   width={700}
                   height={600}
