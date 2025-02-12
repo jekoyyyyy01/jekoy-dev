@@ -139,7 +139,7 @@ const HeroSection: React.FC = () => {
             <FallInPlace delay={1}>
               <Box overflow="hidden" height="50%">
                 <Image
-                  src="/static/images/dev.png"
+                  src=""
                   loading="lazy"
                   width={700}
                   height={600}
@@ -377,9 +377,9 @@ const Experience = () => {
                   <Br />
                   &bull; Trained about their systems, technologies and new programming language to be used.
                   <Br />
-                  &bull; Participated in project meetings with the whole team.
+                  &bull; Participated in new project meetings with the whole team.
                   <Br />
-                  &bull; Designed and developed POS & Internal system using Vue js and Node js.
+                  &bull; Designed and developed POS & Internal system using Vue.js and Node.js.
                   <Br />
                   &bull; Learned to use Api’s.
                   <Br />
@@ -407,7 +407,7 @@ const Experience = () => {
                   <Br />
                   &bull; Learned about PHP, Javascript, jQuery, MySQL, Codeigniter and Laravel frameworks.
                   <Br />
-                  &bull; Designed and developed complex modules in school platforms.
+                  &bull; Designed and developed complex modules in school platform.
                   <Br />
                   &bull; Maintained and enhanced functionality within multiple legacy system.
                   <Br />
@@ -417,7 +417,7 @@ const Experience = () => {
                   <Br />
                   &bull; Learned about cross-platform API backend integration.
                   <Br />
-                  &bull; Learned about third party integration like SnappyPDF/Tcpdf, Laravel Excel/PHPExcel and Oauth2.
+                  &bull; Learned about third party integration like WKHTMLTOPDF/SnappyPDF/Tcpdf, Laravel Excel/PHPExcel and Oauth2.
                   <Br />
                   &bull; Learned importing big data into their Database.
                   <Br />
@@ -425,7 +425,7 @@ const Experience = () => {
                   <Br />
                   &bull; Experienced in mentoring and guiding junior software engineers through training and onboarding processes.
                   <Br />
-                  &bull; Attend a seminar in Fundamentals of Leadership & Management.
+                  &bull; Attend to a seminar like Fundamentals of Leadership & Management.
                 </>
               ),
               variant: isMobileDevice ? '' : 'inline',
