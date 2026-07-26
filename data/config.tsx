@@ -23,8 +23,8 @@ const siteConfig = {
         label: 'About',
       },
       {
-        id: 'skills',
-        label: 'Skills',
+        id: 'tech-stacks',
+        label: 'Tech Stacks',
       },
       {
         id: 'experience',
@@ -47,7 +47,7 @@ const siteConfig = {
         label: <FaLinkedin size="27" />,
       },
       {
-        href: 'https://github.com/Jekoy261',
+        href: 'https://github.com/jekoyyyyy01',
         label: <FaGithub size="27" />,
       },
       {
@@ -55,7 +55,7 @@ const siteConfig = {
         label: <FaInstagram size="27" />,
       },
       {
-        href: 'https://www.facebook.com/jekoy262626',
+        href: 'https://www.facebook.com/jekoyyyyyyyyyy',
         label: <FaFacebook size="27" />,
       },
     ],

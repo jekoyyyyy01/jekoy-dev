@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useMediaQuery } from 'react-responsive';
 import type { NextPage } from "next";
 import Image from "next/image";
 import {
@@ -20,11 +19,10 @@ import {
   VStack,
   Flex,
   TagLabel,
-  useBreakpointValue,
   useColorMode,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
-
 import { FallInPlace } from "components/motion/fall-in-place";
 import { Hero } from "components/hero";
 import { Link, Br } from "@saas-ui/react";
@@ -55,10 +53,9 @@ import { Features } from "components/features";
 import { BackgroundGradient } from "components/gradients/background-gradient";
 import { Faq } from "components/faq";
 import { Pricing } from "components/pricing/pricing";
-
 import { ButtonLink } from "components/button-link/button-link";
 import { Testimonial, Testimonials } from "components/testimonials";
-import { SectionTitle } from 'components/section'
+import { SectionTitle } from "components/section";
 
 import faq from "data/faq";
 import testimonials from "data/testimonials";
@@ -82,7 +79,7 @@ const Home: NextPage = () => {
 
         <AboutSection />
 
-        <SkillsSection />
+        <TechStacksSection />
 
         <Experience />
 
@@ -121,7 +118,7 @@ const HeroSection: React.FC = () => {
               <FallInPlace delay={0.4} fontWeight="medium">
                 <>
                   <Br />
-                  "Every software engineer has their own unique talents, skills, and logical thinking. If there are beginners, we shouldn't belittle them we should teach them. After all, when you were starting out, you were once like them." 
+                  "I started with curiosity and a lot of questions. Today, as a senior and lead developer, I still believe the best engineers lift others up — because I was once a beginner too, and someone took the time to teach me."
                 </>
               </FallInPlace>
             }
@@ -132,7 +129,7 @@ const HeroSection: React.FC = () => {
             position="absolute"
             display={{ base: "none", lg: "block" }}
             left={{ lg: "60%", xl: "55%" }}
-            width="600"
+            width="600px"
             maxW="1100px"
             margin="0 auto"
           >
@@ -215,7 +212,7 @@ const AboutSection = () => {
       }
       description={
         <>
-          Hi Everyone, I am Jericho Cosico, also known as <b>Jekoy</b>, from Lian Batangas, Philippines.
+          Hey — I'm Jericho Cosico, or just <b>Jekoy</b>. Proudly from Lian, Batangas, Philippines, building software with purpose and heart.
           <Br />
         </>
       }
@@ -224,20 +221,43 @@ const AboutSection = () => {
       iconSize={4}
       features={[
         {
-          title: "I am a software engineer",
+          title: "Software Engineer",
           icon: FiCoffee,
           description: (
             <>
-              with five years of experience, and I love the challenge of turning ideas into reality through code. My passion lies in crafting efficient and elegant solutions.
+              with {(() => {
+                const start = new Date(2019, 11, 1); // December is month 11 (0-indexed)
+                const now = new Date();
+                let years = now.getFullYear() - start.getFullYear();
+                let months = now.getMonth() - start.getMonth();
+                if (months < 0 || (months === 0 && now.getDate() < start.getDate())) {
+                  years--;
+                  months += 12;
+                }
+                if (now.getDate() < start.getDate()) {
+                  months--;
+                  if (months < 0) {
+                    years--;
+                    months += 12;
+                  }
+                }
+                if (months < 0) months = 0;
+                return (
+                  <>
+                    {years} {years === 1 ? "year" : "years"}
+                    {months > 0 ? ` and ${months} ${months === 1 ? "month" : "months"}` : ""}
+                  </>
+                );
+              })()} of experience, and I still get excited every time an idea becomes something people can actually use. I care about writing clean, thoughtful code — not just something that works, but something I'm proud of.
               <Br/>
               <Br/>
-              Growing up in the province is tough you need to learn how to make a living. When I was a kid, I was always curious about everything. I always wanted to learn new things, like playing basketball, chess, and more.
+              Growing up in the province taught me grit. Life wasn't always easy, so I learned early how to work hard and figure things out on my own. As a kid, I was endlessly curious — basketball, chess, tinkering with anything I could get my hands on. That same curiosity is what pulled me into tech.
               <Br/>
               <Br/>
-              Before I started college, I thought about what course I should take, and I can proudly say that my skills are really in computers. That's why I chose Information Technology as my course. Now, I have no regrets about my decision, and I am able to help with the expenses here in Batangas.
+              When it was time to choose a path, I went with what felt right: Information Technology. Looking back, that choice changed everything. It gave me a career I love, and a way to support my family back home in Batangas.
               <Br/>
               <Br/>
-              And here I am now, living my dream as a software engineer.
+              Today, I'm living that dream — building software, leading teams, and still learning every day.
             </>
           ),
           variant: "inline",
@@ -248,8 +268,8 @@ const AboutSection = () => {
   );
 };
 
-/* Skills */
-const SkillsSection = () => {
+/* Tech Stacks */
+const TechStacksSection = () => {
   const skills = [
     { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-plain.svg" },
     { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-plain.svg" },
@@ -267,41 +287,77 @@ const SkillsSection = () => {
     { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" }
   ];
 
+  const workflows = [
+    { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
+    { name: "Cursor", icon: "https://cdn.simpleicons.org/cursor/000000" },
+    { name: "Claude AI", icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/claude-ai.svg" },
+    { name: "ChatGPT", icon: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/chatgpt.svg" },
+    { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
+    { name: "GCP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" }
+  ];
+
   return (
-    <Box overflow="hidden">
-      <Container id="skills" maxW="container.xl">
+    <Box id="tech-stacks" overflow="hidden">
+      <Container maxW="container.xl">
         <Flex direction="column" align="center" justify="center" py={10}>
           <Heading as="h2" mb={25}>
-            MY SKILLS
+            TECH STACKS
           </Heading>
 
-          <Wrap justify="center" spacing={{ base: 3, md: 10 }}>
-            {skills.map((skill, index) => (
-              <SkillWrapItem key={index} name={skill.name} icon={skill.icon} />
-            ))}
-          </Wrap>
+          <Box w="100%">
+            <Heading as="h3" size="lg" mb={6} textAlign="center">
+              Skills
+            </Heading>
+            <Wrap justify="center" spacing={{ base: 3, md: 10 }}>
+              {skills.map((skill, index) => (
+                <SkillWrapItem key={index} name={skill.name} icon={skill.icon} />
+              ))}
+            </Wrap>
+          </Box>
+
+          <Box w="100%" mt={{ base: 12, md: 16 }}>
+            <Heading as="h3" size="lg" mb={6} textAlign="center">
+              Workflow
+            </Heading>
+            <SimpleGrid
+              columns={{ base: 2, md: 3 }}
+              spacing={{ base: 4, md: 8 }}
+              w="100%"
+              maxW={{ base: "100%", md: "720px" }}
+              mx="auto"
+              justifyItems="center"
+            >
+              {workflows.map((workflow, index) => (
+                <SkillItem key={index} name={workflow.name} icon={workflow.icon} />
+              ))}
+            </SimpleGrid>
+          </Box>
         </Flex>
       </Container>
     </Box>
   );
 };
-const SkillWrapItem = ({ name, icon }) => {
+
+interface SkillItemProps {
+  name: string;
+  icon: string;
+}
+
+const SkillWrapItem: React.FC<SkillItemProps> = ({ name, icon }) => {
   return (
     <WrapItem>
       <SkillItem name={name} icon={icon} />
     </WrapItem>
   );
 };
-const SkillItem = ({ name, icon }) => {
+
+const SkillItem: React.FC<SkillItemProps> = ({ name, icon }) => {
   const { colorMode } = useColorMode();
-  const imgH         = useBreakpointValue({ base: "50px", md: "100px" });
-  const imgW         = useBreakpointValue({ base: "50px", md: "100px" });
-  const textFontSize = useBreakpointValue({ base: "sm", md: "xl" });
 
   return (
     <Box
-      bg={ colorMode === 'light' ? '#E7E4F7' : '#27284C' }
-      color={ colorMode === 'light' ? 'black' : 'white' }
+      bg={ colorMode == "light" ? "#E7E4F7" : "#27284C" }
+      color={ colorMode == "light" ? "black" : "white" }
       borderRadius="md"
       p={4}
       textAlign="center"
@@ -314,7 +370,7 @@ const SkillItem = ({ name, icon }) => {
     >
       <Text
         fontWeight="bold"
-        fontSize={textFontSize}
+        fontSize={{ base: "sm", md: "xl" }}
         mb={{ base: 2, md: 4 }}
         top={{ base: 2, md: 4 }}
         position="absolute"
@@ -325,10 +381,21 @@ const SkillItem = ({ name, icon }) => {
       </Text>
 
       <Flex justify="center" align="center" h="100%">
-        <img
-          src={icon}
-          style={{ width: imgW, height: imgH, marginTop: "10px" }}
-        />
+        <Box
+          mt="10px"
+          w={{ base: "50px", md: "100px" }}
+          h={{ base: "50px", md: "100px" }}
+          position="relative"
+        >
+          <Image
+            src={icon}
+            alt={name}
+            fill
+            sizes="100px"
+            style={{ objectFit: "contain" }}
+            unoptimized
+          />
+        </Box>
       </Flex>
     </Box>
   );
@@ -375,16 +442,14 @@ const Experience = () => {
 
                   <Br />
                   <Br />
-                  &bull; Trained about their systems, technologies and new programming language to be used.
                   <Br />
-                  &bull; Participated in new project meetings with the whole team.
+                  My career started here — learning how real products are built. I trained on the company's systems, technologies, and programming stack, then quickly moved from observing to contributing.
                   <Br />
-                  &bull; Designed and developed POS & Internal system using Vue.js and Node.js.
                   <Br />
-                  &bull; Learned to use Api’s.
+                  I worked closely with the team in project kickoffs and planning sessions, helping shape what we would build next. Together, we designed and developed a POS and internal system using Vue.js and Node.js.
                   <Br />
-                  &bull; Experienced to use the bitbucket and github
                   <Br />
+                  Along the way, I built and consumed RESTful APIs to connect frontend and backend features, and used Bitbucket and GitHub for version control, collaboration, and pull request workflows — foundations that still guide how I work today.
                 </>
               ),
               variant: isMobileDevice ? '' : 'inline',
@@ -392,7 +457,7 @@ const Experience = () => {
               delay: 0.6,
             },
             {
-              title: "Software Engineer",
+              title: "Senior and Lead Developer",
               icon: FiGitMerge,
               description: (
                 <>
@@ -405,27 +470,19 @@ const Experience = () => {
 
                   <Br />
                   <Br />
-                  &bull; Learned about PHP, Javascript, jQuery, MySQL, Codeigniter and Laravel frameworks.
+                  This is where I grew into the engineer and leader I am today. I build and maintain production systems with PHP, JavaScript, jQuery, MySQL, CodeIgniter, and Laravel — designing complex modules for a large-scale school platform used across multiple institutions.
                   <Br />
-                  &bull; Designed and developed complex modules in school platform.
                   <Br />
-                  &bull; Maintained and enhanced functionality within multiple legacy system.
+                  A big part of my work has been caring for what already exists. I've maintained and improved critical features across legacy systems, modernized outdated backend services, and kept things stable while making them better. I also manage server-side operations on Google Cloud Platform (GCP) and Linux, and develop cross-platform API backends that keep systems talking to each other reliably.
                   <Br />
-                  &bull; Learned and recoded outdated backend systems to modernize functionality.
                   <Br />
-                  &bull; Learned Server Side Like Google Cloud Platform (GCP) and Linux Server.
+                  Beyond the core platform, I've implemented third-party integrations like WKHTMLTOPDF/SnappyPDF/TCPDF, Laravel Excel/PHPExcel, and OAuth2, and designed large-scale data import workflows into production databases. I've also sat in strategic planning sessions — helping define objectives and delivery approaches for major initiatives.
                   <Br />
-                  &bull; Learned about cross-platform API backend integration.
                   <Br />
-                  &bull; Learned about third party integration like WKHTMLTOPDF/SnappyPDF/Tcpdf, Laravel Excel/PHPExcel and Oauth2.
+                  Leadership became just as important as the code. I mentor and onboard junior engineers, manage their day-to-day work through task assignment and delivery reviews, and completed programs like Fundamentals of Leadership & Management to grow in that role.
                   <Br />
-                  &bull; Learned importing big data into their Database.
                   <Br />
-                  &bull; Experienced big meeting to outline objectives and tactics for upcoming major projects.
-                  <Br />
-                  &bull; Experienced in mentoring and guiding junior software engineers through training and onboarding processes.
-                  <Br />
-                  &bull; Attend to a seminar like Fundamentals of Leadership & Management.
+                  Today, I also utilize AI tools such as Cursor, Claude AI, and ChatGPT to accelerate development, improve code quality, and deliver product features more efficiently — always with the same goal: shipping work that teams and users can trust.
                 </>
               ),
               variant: isMobileDevice ? '' : 'inline',
