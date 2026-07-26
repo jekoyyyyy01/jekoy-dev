@@ -36,7 +36,7 @@ const siteConfig = {
     copyright: (
       <>
         Built by{' '}
-        <Link href="https://github.com/Jekoy261">Jericho Cosico</Link>
+        <Link href="https://github.com/jekoyyyyy01">Jericho Cosico</Link>
         <br />
         <span>© {year}</span>
       </>
