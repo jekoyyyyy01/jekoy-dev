@@ -7,7 +7,7 @@ const ThemeToggle = () => {
     <IconButton
       variant="ghost"
       aria-label="theme toggle"
-      icon={colorMode === 'light' ? <FiMoon size="14" /> : <FiSun size="14" />}
+      icon={colorMode == 'light' ? <FiMoon size="14" /> : <FiSun size="14" />}
       borderRadius="md"
       onClick={toggleColorMode}
     />

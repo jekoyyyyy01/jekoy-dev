@@ -12,10 +12,7 @@ export const BackgroundGradient = ({ hideOverlay, ...props }: any) => {
   let fallbackBackground = `radial-gradient(at top left, ${colors[0]} 30%, transparent 80%), radial-gradient(at bottom, ${colors[1]} 0%, transparent 90%), radial-gradient(at bottom left, var(--chakra-colors-cyan-100) 0%, transparent 50%),
         radial-gradient(at top right, ${colors[0]}, transparent), radial-gradient(at bottom right, ${colors[0]} 0%, transparent 50%);`
 
-  let gradientOverlay = `linear-gradient(0deg, var(--chakra-colors-${useColorModeValue(
-    'white',
-    'gray-900'
-  )}) 30%, rgba(0, 0, 0, 0) 100%);`
+  const overlay_bg = useColorModeValue('white', 'gray.900')
 
   return (
     <Box
@@ -26,21 +23,29 @@ export const BackgroundGradient = ({ hideOverlay, ...props }: any) => {
       left="0"
       zIndex="0"
       opacity={useColorModeValue('0.3', '0.5')}
+      transition="opacity 1.5s ease"
       height="100vh"
       width="100%"
       overflow="hidden"
       pointerEvents="none"
       {...props}
     >
-      <Box
-        backgroundImage={!hideOverlay ? gradientOverlay : undefined}
-        position="absolute"
-        top="0"
-        right="0"
-        bottom="0"
-        left="0"
-        zIndex="1"
-      ></Box>
+      {!hideOverlay ? (
+        <Box
+          bg={overlay_bg}
+          position="absolute"
+          top="0"
+          right="0"
+          bottom="0"
+          left="0"
+          zIndex="1"
+          transition="background-color 1.5s ease"
+          sx={{
+            WebkitMaskImage: 'linear-gradient(0deg, black 30%, transparent 100%)',
+            maskImage: 'linear-gradient(0deg, black 30%, transparent 100%)',
+          }}
+        />
+      ) : null}
     </Box>
   )
 }

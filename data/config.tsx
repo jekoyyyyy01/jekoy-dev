@@ -12,7 +12,7 @@ const siteConfig = {
   logo: '',
   seo: {
     title: 'Jekoy',
-    description: 'Jekoy - Software engineer',
+    description: 'Jekoy - Software Engineer',
   } as NextSeoProps,
   termsUrl: '#',
   privacyUrl: '#',

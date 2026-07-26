@@ -12,6 +12,7 @@ const styles = {
       color: 'gray.900',
       bg: 'white',
       fontSize: 'lg',
+      transition: 'background-color 1.5s ease, color 1.5s ease',
       _dark: {
         color: 'white',
         bg: 'gray.900',
