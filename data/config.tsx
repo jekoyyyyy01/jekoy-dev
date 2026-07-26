@@ -9,7 +9,7 @@ const date = new Date();
 const year = date.getFullYear();
 
 const siteConfig = {
-  logo: '',
+  logo: '/static/images/jekoy-logo.svg',
   seo: {
     title: 'Jekoy',
     description: 'Jekoy - Software Engineer',

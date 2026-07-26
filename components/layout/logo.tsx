@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Box, Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
+import { Flex, VisuallyHidden } from '@chakra-ui/react'
 import { Link } from '@saas-ui/react'
+import { JekoyLogo } from 'components/brand'
 
 export interface LogoProps {
   href?: string
@@ -11,18 +12,16 @@ import siteConfig from 'data/config'
 
 export const Logo = ({ href = '/', onClick }: LogoProps) => {
   return (
-    <Flex h="8" flexShrink="0" alignItems="flex-start">
+    <Flex h="8" flexShrink="0" alignItems="center">
       <Link
         href={href}
         display="flex"
         p="1"
         borderRadius="sm"
         onClick={onClick}
-         _hover={{ textDecoration: "none" }}
+        _hover={{ textDecoration: 'none' }}
       >
-        <Heading as="h1" size="md">
-          {siteConfig.seo?.title}
-        </Heading>
+        <JekoyLogo height={32} />
         <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>
       </Link>
     </Flex>

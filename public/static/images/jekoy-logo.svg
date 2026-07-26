@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <defs>
+    <linearGradient id="jekoy-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#805AD5"/>
+      <stop offset="50%" stop-color="#6B46C1"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="32" fill="url(#jekoy-gradient)" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="-1">Jekoy</text>
+</svg>
