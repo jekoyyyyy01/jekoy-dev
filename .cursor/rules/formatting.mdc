@@ -1,0 +1,50 @@
+---
+description: 2-space indentation and same-line brace formatting
+alwaysApply: true
+---
+
+# Formatting
+
+## Indentation
+
+- Use **2 spaces** only. Never tabs. Never 4 spaces.
+- Do not mix indentation styles in the same file.
+
+## Braces (same line)
+
+Opening `{` stays on the **same line** as the statement that starts the block.
+
+```typescript
+// Correct
+function save_profile() {
+  if (is_valid) {
+    return data;
+  }
+}
+
+class Header {
+  render() {
+    return null;
+  }
+}
+
+interface SiteConfig {
+  title: string;
+}
+
+// Wrong
+function save_profile()
+{
+  if (is_valid)
+  {
+    return data;
+  }
+}
+```
+
+Applies to: `function`, `if` / `else` / `for` / `while` / `switch`, `try` / `catch` / `finally`, `class`, `interface`, `type` object literals when multiline, and arrow functions only when the body is a block `{ ... }` (not single-expression `=>` without braces).
+
+## Other
+
+- Do not use single-line conditionals without braces (`if (x) return y;` with no `{ }` is discouraged when adding or editing control flow).
+- Match surrounding file style when editing existing code; use these rules for new code and intentional formatting fixes.
