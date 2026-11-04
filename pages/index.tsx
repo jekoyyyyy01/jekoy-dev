@@ -23,7 +23,15 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
+import { MotionConfig } from "framer-motion";
 import { FallInPlace } from "components/motion/fall-in-place";
+import { MotionBox } from "components/motion/box";
+import {
+  HeroRevealItem,
+  HeroRevealNoscript,
+} from "components/motion/hero-reveal";
+import { useHeroParallax } from "hooks/use-hero-parallax";
+import { HeroAmbient } from "components/hero/hero-ambient";
 import { Hero } from "components/hero";
 import { Link, Br } from "@saas-ui/react";
 import { Em } from "components/typography";
@@ -97,100 +105,119 @@ const Home: NextPage = () => {
 };
 
 const HeroSection: React.FC = () => {
-  return (
-    <Box overflow="hidden">
-      <BackgroundGradient height="100%" zIndex="-1" />
-      <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
-        <Stack direction={{ base: "column", lg: "row" }} alignItems="center">
-          <Hero
-            id="home"
-            justifyContent="flex-start"
-            px="0"
-            title={
-              <FallInPlace>
-                <>
-                  I'm Jericho Cosico
-                  <Br /> Software Engineer
-                </>
-              </FallInPlace>
-            }
-            description={
-              <FallInPlace delay={0.4} fontWeight="medium">
-                <>
-                  <Br />
-                  "I started with curiosity and a lot of questions. Today, as a senior and lead developer, I still believe the best engineers lift others up — because I was once a beginner too, and someone took the time to teach me."
-                </>
-              </FallInPlace>
-            }
-          >
-          </Hero>
-          <Box
-            height="600px"
-            position="absolute"
-            display={{ base: "none", lg: "block" }}
-            left={{ lg: "60%", xl: "55%" }}
-            width="600px"
-            maxW="1100px"
-            margin="0 auto"
-          >
-            <FallInPlace delay={1}>
-              <Box overflow="hidden" height="50%">
-                <Image
-                  src="/static/images/dev6.png"
-                  loading="lazy"
-                  width={700}
-                  height={600}
-                  alt="dev image"
-                  quality="70"
-                />
-              </Box>
-            </FallInPlace>
-          </Box>
-        </Stack>
-      </Container>
+  const hero_ref = React.useRef<HTMLDivElement>(null);
+  const {
+    illustration_y,
+    illustration_opacity,
+    ambient_y,
+    ambient_opacity,
+  } = useHeroParallax(hero_ref);
 
-      {/*<Features
-        id="benefits"
-        columns={[1, 2, 4]}
-        iconSize={4}
-        innerWidth="container.xl"
-        pt="20"
-        features={[
-          {
-            title: "Accessible",
-            icon: FiSmile,
-            description: "All components strictly follow WAI-ARIA standards.",
-            iconPosition: "left",
-            delay: 0.6,
-          },
-          {
-            title: "Themable",
-            icon: FiSliders,
-            description:
-              "Fully customize all components to your brand with theme support and style props.",
-            iconPosition: "left",
-            delay: 0.8,
-          },
-          {
-            title: "Composable",
-            icon: FiGrid,
-            description:
-              "Compose components to fit your needs and mix them together to create new ones.",
-            iconPosition: "left",
-            delay: 1,
-          },
-          {
-            title: "Productive",
-            icon: FiThumbsUp,
-            description:
-              "Designed to reduce boilerplate and fully typed, build your product at speed.",
-            iconPosition: "left",
-            delay: 1.1,
-          },
-        ]}
-        reveal={FallInPlace}
-      />*/}
-    </Box>
+  return (
+    <MotionConfig reducedMotion="user">
+      <Box overflow="hidden" ref={hero_ref}>
+        <HeroRevealNoscript />
+        <BackgroundGradient height="100%" zIndex="-1" />
+        <HeroAmbient y={ambient_y} opacity={ambient_opacity} />
+        <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
+          <Stack direction={{ base: "column", lg: "row" }} alignItems="center">
+            <Hero
+              id="home"
+              justifyContent="flex-start"
+              px="0"
+              title={
+                <>
+                  <HeroRevealItem as="span" display="block" delay={0.1}>
+                    I'm Jericho Cosico
+                  </HeroRevealItem>
+                  <HeroRevealItem as="span" display="block" delay={0.22}>
+                    Software Engineer
+                  </HeroRevealItem>
+                </>
+              }
+              description={
+                <HeroRevealItem delay={0.36} duration={0.7} fontWeight="medium">
+                  <>
+                    <Br />
+                    "I started with curiosity and a lot of questions. Today, as a senior and lead developer, I still believe the best engineers lift others up — because I was once a beginner too, and someone took the time to teach me."
+                  </>
+                </HeroRevealItem>
+              }
+            >
+            </Hero>
+            <Box
+              height="600px"
+              position="absolute"
+              display={{ base: "none", lg: "block" }}
+              left={{ lg: "60%", xl: "55%" }}
+              width="600px"
+              maxW="1100px"
+              margin="0 auto"
+            >
+              <MotionBox
+                willChange="transform"
+                style={{ y: illustration_y, opacity: illustration_opacity }}
+              >
+                <HeroRevealItem delay={0.45} duration={0.7} distance={24}>
+                  <Box overflow="hidden" height="50%">
+                    <Image
+                      src="/static/images/dev6.png"
+                      loading="lazy"
+                      width={700}
+                      height={600}
+                      alt="dev image"
+                      quality="70"
+                    />
+                  </Box>
+                </HeroRevealItem>
+              </MotionBox>
+            </Box>
+          </Stack>
+        </Container>
+
+        {/*<Features
+          id="benefits"
+          columns={[1, 2, 4]}
+          iconSize={4}
+          innerWidth="container.xl"
+          pt="20"
+          features={[
+            {
+              title: "Accessible",
+              icon: FiSmile,
+              description: "All components strictly follow WAI-ARIA standards.",
+              iconPosition: "left",
+              delay: 0.6,
+            },
+            {
+              title: "Themable",
+              icon: FiSliders,
+              description:
+                "Fully customize all components to your brand with theme support and style props.",
+              iconPosition: "left",
+              delay: 0.8,
+            },
+            {
+              title: "Composable",
+              icon: FiGrid,
+              description:
+                "Compose components to fit your needs and mix them together to create new ones.",
+              iconPosition: "left",
+              delay: 1,
+            },
+            {
+              title: "Productive",
+              icon: FiThumbsUp,
+              description:
+                "Designed to reduce boilerplate and fully typed, build your product at speed.",
+              iconPosition: "left",
+              delay: 1.1,
+            },
+          ]}
+          reveal={FallInPlace}
+        />*/}
+      </Box>
+    </MotionConfig>
   );
 };
 
